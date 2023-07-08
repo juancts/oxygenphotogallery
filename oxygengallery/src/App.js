@@ -1,23 +1,32 @@
-
 import React from "react";
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from "react-redux";
-import {createStore} from 'redux';
-import rooReducer from './reducers';
-
-const store = createStore(rootReducer);
-
+import { Route, Routes, useLocation } from "react-router-dom";
+import { Home, Favorites, About, LandingPage } from "./views";
+import { NavBar, SearchBar } from "./components";
 
 function App() {
- 
   
+  let location = useLocation();
+  console.log(location.pathname)
+
   return (
-    <Provider store={store}>
-    <div className="App">
-      <h1>OXYGEN GALLERY APP</h1>
+    
+    <div>
+      {location.pathname !== "/" && (
+      <>
+        <NavBar /> 
+        <SearchBar />
+      </>)}
+      <Routes>
+      <Route exact path="/" element={<LandingPage />} />
+      <Route exact path="/home" element={<Home />} />
+      <Route exact path="/favorites" element={<Favorites />} />
+      <Route exact path="/about" element={<About />} />
+      
+      </Routes>
     </div>
 
-    </Provider>
+    
+    
   );
 }
 
