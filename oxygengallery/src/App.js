@@ -1,10 +1,12 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Home, Favorites, About, LandingPage } from "./views";
-import { NavBar, SearchBar } from "./components";
+import { Home, Favorites, About, LandingPage, Footer } from "./views";
+import { Cards, NavBar, SearchBar } from "./components";
+import { useSelector } from "react-redux";
 
 function App() {
-  
+  let photos = useSelector(state=>state.photos)
+  console.log("photos:", photos)
   let location = useLocation();
   console.log(location.pathname)
 
@@ -23,6 +25,8 @@ function App() {
       <Route exact path="/about" element={<About />} />
       
       </Routes>
+      <Cards />
+      <Footer />
     </div>
 
     
