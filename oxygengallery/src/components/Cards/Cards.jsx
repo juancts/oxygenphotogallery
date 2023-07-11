@@ -1,21 +1,28 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useSelector } from "react-redux";
+import Card from "../Card/Card";
 
 function Cards() {
-
-const photos = useSelector(photos=>photos.photos)
-
-for (let i = 0; i < photos.allPhotos.length; i++) {
-  console.log(photos.allPhotos[i].id);
-  
-}
-console.log("photos cards:", photos.allPhotos)
+  const photos = useSelector((photos) => photos.photos);
 
   return (
-    <div>{photos.allPhotos.map((e, i)=>(
-      <div key={i}><img style={{width: 300},{height: 300}} src={e.photo}></img></div>
-    ))}</div>
-  )
+    <>
+      {photos.allPhotos.map((e, i) => (
+        <div key={i}>
+          <p>{e.id}</p>
+
+          <Card
+            key={e.id}
+            index={i}
+            height={e.height}
+            width={e.width}
+            description={e.description}
+            photo={e.photo}
+          />
+        </div>
+      ))}
+    </>
+  );
 }
 
-export default Cards
+export default Cards;

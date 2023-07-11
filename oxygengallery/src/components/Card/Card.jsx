@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Card() {
+function Card(props) {
   return (
-    <div>Card</div>
+    <div>
+      <img style={{width: 300 , height: 300}} src={props.photo} alt={props.index} />
+    </div>
   )
 }
 
