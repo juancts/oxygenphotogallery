@@ -17,7 +17,8 @@ const getphotos = async () => {
         id: e.id,
         width: e.width,
         height: e.height,
-        description: e.description
+        description: e.description,
+        photo: e.urls.regular
     }
   })
   return allPhotosResult;
@@ -38,7 +39,8 @@ const searchphotos = async (search) => {
         id: e.id,
         width: e.width,
         height: e.height,
-        description: e.description
+        description: e.description,
+        photo: e.urls.regular
     }
   })
 
