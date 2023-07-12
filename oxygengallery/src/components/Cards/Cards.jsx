@@ -2,17 +2,24 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import { useLocation } from "react-router-dom";
+import styles from "./Cards.module.css"
+import {BsFillCaretRightFill, BsFillCaretLeftFill} from "react-icons/bs"
 
 function Cards() {
   const photos = useSelector((photos) => photos.photos.allPhotos);
   const favorites = useSelector((photos) => photos.photos.favorites);
   const location = useLocation();
 
+  console.log("FAVORITES", favorites);
   console.log(location);
 
   return (
-    <div>
-      {location !== "favorites"
+    <div className={styles.container}>
+      <div className={styles.sigant}>
+        <i className={styles.icon}><BsFillCaretLeftFill/></i>
+      </div>
+      <div>
+      {location.pathname !== "/favorites"
         ? photos.map((e, i) => (
             <div key={i}>
               <p>{e.id}</p>
@@ -43,6 +50,11 @@ function Cards() {
               />
             </div>
           ))}
+
+      </div>
+      <div className={styles.sigant}>
+      <i className={styles.icon}><BsFillCaretRightFill/></i>
+      </div>
     </div>
   );
 }

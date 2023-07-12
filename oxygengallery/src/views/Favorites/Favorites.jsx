@@ -1,8 +1,11 @@
 import React from 'react'
+import Cards from '../../components/Cards/Cards'
 
 function Favorites() {
   return (
-    <div>Favorites</div>
+    <div>
+      <Cards />
+    </div>
   )
 }
 

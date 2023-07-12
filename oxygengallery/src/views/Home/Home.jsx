@@ -1,16 +1,25 @@
-
 //import { Link } from "react-router-dom";
-import Cards from "../../components/Cards/Cards"
+import { useDispatch } from "react-redux";
+import Cards from "../../components/Cards/Cards";
 
-import React from "react";
+import React, { useEffect } from "react";
+import { fetchPhotos } from "../../features/photos/photosSlice";
 
 
 function Home() {
+
+const dispatch = useDispatch()
+
+useEffect(()=>{
+  dispatch(fetchPhotos())
+},[])
+
   return (
-  <div>
-    <Cards />
+    <div>
+      
+      <Cards />
     </div>
-  )
+  );
 }
 
 export default Home;

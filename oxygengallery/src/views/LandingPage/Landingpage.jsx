@@ -8,7 +8,8 @@ function LandingPage() {
   //const photos = useSelector ( (state)=>state.photos.allPhotos)
   const dispatch = useDispatch()
 
-  const handleClick = ()=>{
+  const handleClick = (e)=>{
+    
     dispatch(fetchPhotos());
   }
 

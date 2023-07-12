@@ -24,8 +24,7 @@ function App() {
       <Route exact path="/favorites" element={<Favorites />} />
       <Route exact path="/about" element={<About />} />
       
-      </Routes>
-      <Cards />
+      </Routes>      
       <Footer />
     </div>
 
