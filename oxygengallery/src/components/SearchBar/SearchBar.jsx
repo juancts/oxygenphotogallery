@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -10,7 +11,7 @@ console.log("FAVORITES LOCATION:", location)
     <div>
         {location.pathname !== "/favorites" ? <h1>OXYGEN PHOTO GALLERY</h1> : <h1>MY PHOTOS</h1>}
         <h3>La fuente de imágenes de internet. Con recursos de creadores de todo el mundo.</h3>
-        <input type="text" />
+        <TextField id="outlined-basic" label="Search" variant="outlined" />
     </div>
   )
 }

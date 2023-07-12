@@ -17,18 +17,32 @@ export const fetchPhotos = createAsyncThunk("photos/fetchPhotos", async () => {
     }
   });
 
-  export const photosSlice = createSlice({
+
+  export const addToFavorites = (photoId)=>{
+    return {
+      type:"photos/addToFavorites",
+      payload: photoId,
+    };
+  };
+
+
+export const photosSlice = createSlice({
     name: "photos",
     initialState,
-    reducers: {},
+    reducers: {
+          addToFavorites:(state, action)=>{
+            const photo = state.allPhotos.find((photo)=>photo.id === action.payload)
+            if (photo)state.favorites.push(photo)
+          }
+    },
     extraReducers: (builder) => {
       builder.addCase(fetchPhotos.fulfilled, (state, action) => {
         state.allPhotos = action.payload;
       });
+       
     },
+    
   });
-
-
 
 
 export default photosSlice.reducer
