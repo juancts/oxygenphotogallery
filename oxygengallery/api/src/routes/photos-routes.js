@@ -6,6 +6,6 @@ const router = Router()
 
 
 router.get("/", GET_AllPhotos);
-router.get("/search", GET_SearchPhotos);
+router.get("/search/", GET_SearchPhotos);
 
 module.exports = router;
