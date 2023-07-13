@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Home, Favorites, About, LandingPage, Footer } from "./views";
-import { Cards, NavBar, SearchBar } from "./components";
+import { NavBar, SearchBar } from "./components";
 import { useSelector } from "react-redux";
 
 function App() {

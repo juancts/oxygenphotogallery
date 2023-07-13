@@ -12,7 +12,7 @@ const dispatch = useDispatch()
 
 useEffect(()=>{
   dispatch(fetchPhotos())
-},[])
+},[dispatch])
 
   return (
     <div>

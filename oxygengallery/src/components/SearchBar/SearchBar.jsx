@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -24,24 +24,40 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <Box sx={{ flexGrow: 1, backgroundColor: "black", textAlign:"center", padding:"100px" }}>
       {location.pathname !== "/favorites" ? (
-        <h1>OXYGEN PHOTO GALLERY</h1>
+        <Typography variant="h4" sx={{color: "white"}}>OXYGEN PHOTO GALLERY</Typography>
       ) : (
-        <h1>MY PHOTOS</h1>
+        <Typography variant="h4" sx={{color: "white"}}>MY PHOTOS</Typography>
       )}
-      <h3>
+      <Typography variant="h6" sx={{color: "white"}}>
         La fuente de imágenes de internet. Con recursos de creadores de todo el
         mundo.
-      </h3>
+      </Typography>
+      <Box sx={{display:"flex", gap:"25px", justifyContent:"center", marginTop:"25px"}}>
       <TextField
         id="outlined-basic"
         label="Search"
         variant="outlined"
         onChange={handleOnchange}
+        sx={{
+          backgroundColor: "white",
+          borderRadius:"10px",
+          width: "500px",
+          height: "40px",
+          
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              border: "none",
+              
+            },
+          },
+        }}
       />
       <Button variant="contained" onClick={onSubmit}>Search</Button>
-    </div>
+
+      </Box>
+    </Box>
   );
 }
 
